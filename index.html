@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jumbotron tutorial from BootstrapBay.com">
+    <meta name="author" content="BootstrapBay.com">
+    <title>Home Portal</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+  </head>
+  <body>
+  
+    <!-- Fixed navbar
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#">Home monitoring</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-right">
+<li class="active"><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li class="dropdown-header">Admin & Dashboard</li>
+<li><a href="#">Admin 1</a></li>
+<li><a href="#">Admin 2</a></li>
+<li class="divider"></li>
+<li class="dropdown-header">Portfolio</li>
+<li><a href="#">Portfolio 1</a></li>
+<li><a href="#">Portfolio 2</a></li>
+</ul>
+</li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<div class="jumbotronx other2-color text-center">
+<h1><span class="glyphicon glyphicon-th-large"></span></h1>
+<!--<h1><span id="weather1" class="simpleopenweather" data-simpleopenweather-coord="46.479030,15.686478"></span></h1>-->
+</div>
+
+<div class="container">
+<div class="jumbotron other-color text-left">
+<h2><b><span id="weather"></span></b></h2>
+<p><span id="weather2"></span></p>
+<h2><span class="glyphicon glyphicon-home"><b> <span id="myelement"></span></b></h2>
+<h2><span class="glyphicon glyphicon-tint"> <b> <span id="myelement2"></span></b></h2>
+<h2><span class="glyphicon glyphicon-upload"><b> <span id="myelement3"></span></b></h2>
+<h2><span class="glyphicon glyphicon-certificate"><b> <span id="myelement4"></span></b></h2>
+</div>
+</div>
+
+
+    <!-- Fixed footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+     <div class="container">
+     <div class="navbar-text pull-left">
+     <p>© 2014 CrossfireX.</p>
+     </div>
+     <div class="navbar-text pull-right">
+     <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+     <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+     <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+     </div>
+     </div>
+    </div>
+
+    
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+<script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.simpleWeather.js"></script>
+<script type="text/javascript"> $(document).ready(function() {
+  $.simpleWeather({
+    location: 'Maribor',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+      html = weather.city +', '+ weather.temp+'&deg;';
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+});
+</script>
+
+<script type="text/javascript"> $(document).ready(function() {
+  $.simpleWeather({
+    location: 'Maribor',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+      html = '<h2><i class="icon-'+weather.code+'"></i> '+'</h2>';
+      html += weather.currently+', '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+  
+      $("#weather2").html(html);
+    },
+    error: function(error) {
+      $("#weather2").html('<p>'+error+'</p>');
+    }
+  });
+});
+
+</script>
+
+
+
+  </body>
+</html>
+
+<script>
+
+    // Make sure the document is ready to be handled
+    $(document).ready(function($) {
+
+      // Set the Xively API key (https://xively.com/users/YOUR_USERNAME/keys)
+      xively.setKey( "Vda1myZDPpFLf7zrktfsbPMR33VLJkSEePUHw0ExvqDBRNse" );
+
+      // Replace with your own values
+      var feedID = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID = "Temperature"; // Datastream ID
+          selector = "#myelement"; // Your element on the page - takes any valid jQuery selector
+
+// Replace with your own values
+      var feedID2 = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID2 = "Humidity"; // Datastream ID
+          selector2 = "#myelement2"; // Your element on the page - takes any valid jQuery selector
+
+var feedID3 = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID3 = "Pressure"; // Datastream ID
+          selector3 = "#myelement3"; // Your element on the page - takes any valid jQuery selector
+
+var feedID4 = 1926706524, // Feed ID (the last number on the URL on the feed page on Xively)
+          datastreamID4 = "Light"; // Datastream ID
+          selector4 = "#myelement4"; // Your element on the page - takes any valid jQuery selector
+
+      // Get datastream data from Xively
+      xively.datastream.get (feedID, datastreamID, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID, datastreamID, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+xively.datastream.get (feedID2, datastreamID2, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector2).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID2, datastreamID2, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector2).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+
+
+xively.datastream.get (feedID3, datastreamID3, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector3).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID3, datastreamID3, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector3).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+
+
+// Get datastream data from Xively
+      xively.datastream.get (feedID4, datastreamID4, function ( datastream ) {
+        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
+        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at:
+        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
+
+
+        // Display the current value from the datastream
+        $(selector4).html( datastream["current_value"] );
+
+        // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
+        xively.datastream.subscribe( feedID4, datastreamID4, function ( event , datastream_updated ) {
+          // Display the current value from the updated datastream
+          $(selector4).html( datastream_updated["current_value"] );
+        });
+
+      });
+
+
+      // WARNING: Code here will continue executing while we get the datastream data from Xively, use the function associated with datastream.get to work with the data, when the request is complete
+    });
+  </script>
